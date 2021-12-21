@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Events(models.Model):
+class Event(models.Model):
     eventTitle = models.CharField(max_length=55)
     date = models.DateField((""), auto_now=False, auto_now_add=False)
     # Ask about this

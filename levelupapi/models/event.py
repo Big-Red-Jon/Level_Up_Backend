@@ -13,5 +13,13 @@ class Event(models.Model):
                             auto_now_add=False, default='None')
     time = models.TimeField((u"Conversation Time"),
                             blank=True, default='Some Time')
-    attendee = models.ManyToManyField(
+    attendees = models.ManyToManyField(
         'levelupapi.gamer', related_name='attending')
+
+    @property
+    def joined(self):
+        return self.__joined
+
+    @joined.setter
+    def joined(self, value):
+        self.__joined = value

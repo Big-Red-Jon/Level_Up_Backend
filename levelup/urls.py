@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import include
 from django.urls import path
 from django.contrib import admin
-from levelupapi.views import register_user, login_user
 from rest_framework import routers
 from levelupapi.views import GameTypeView, GameView, EventView, login_user, register_user, get_gamer_profile
 
@@ -26,6 +25,7 @@ router.register(r'gametypes', GameTypeView, 'gametype')
 router.register(r'games', GameView, 'game')
 router.register(r'events', EventView, 'event')
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
@@ -33,4 +33,5 @@ urlpatterns = [
     path('login', login_user),
     path('profile', get_gamer_profile),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
+
 ]
